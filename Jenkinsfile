@@ -32,12 +32,12 @@ pipeline {
             }
             post {
                 success {
-                    mail to: 'xazeldotheeia@gmail.com',
+                    mail to: 'xadams130@gmail.com',
                          subject: 'Security Scan: SUCCESS',
                          body: '✅ Security Scan stage completed successfully.'
                 }
                 failure {
-                    mail to: 'xazeldotheeia@gmail.com',
+                    mail to: 'xadams130@gmail.com',
                          subject: 'Security Scan: FAILURE',
                          body: '❌ Security Scan stage failed. Check Jenkins logs for more details.'
                 }
@@ -56,12 +56,12 @@ pipeline {
             }
             post {
                 success {
-                    mail to: 'xazeldotheeia@gmail.com',
+                    mail to: 'xadams130@gmail.com',
                          subject: 'Staging Integration Tests: SUCCESS',
                          body: '✅ Integration tests on staging completed successfully.'
                 }
                 failure {
-                    mail to: 'xazeldotheeia@gmail.com',
+                    mail to: 'xadams130@gmail.com',
                          subject: 'Staging Integration Tests: FAILURE',
                          body: '❌ Integration tests on staging failed. Check Jenkins logs for more details.'
                 }
