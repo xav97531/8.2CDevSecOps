@@ -35,7 +35,6 @@ pipeline{
          stage('integration Tests on Staging') {
             steps {
                 echo "Running integration tests on the staging environment..."
-                sleep time: 10, unit: 'SECONDS'
             }
         }
 
