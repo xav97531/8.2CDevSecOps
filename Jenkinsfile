@@ -1,39 +1,42 @@
 pipeline{
     agent any 
+    environment {
+        DIRECTORY_PATH= "http://localhost:8080/job/CD-Pipeline"
+        TESTING_ENVIRONMENT= "Pipeline"
+        PRODUCTION_ENVIRONMENT= "Xavier"
+    }
     stages{
         stage('Build'){
             steps{
-                echo "Build started and completed!"
+                echo "Fetch the source code from $DIRECTORY_PATH"
                  }
         }
         stage('Test'){
             steps{
-                echo "Test started and completed!"
+                echo "Unit tests"
+                echo "Integration tests"
                  }
         }
         stage('Code quality check'){
             steps{
-                echo "Code quality check completed!"
+                echo "Check the quality of the code!"
                  }
         }
         stage('Deploy'){
             steps{
-                echo "Deployment started and completed!"
+                echo "Deploy the application to $PRODUCTION_ENVIRONMENT"
                  }
         }
-        stage('Approval '){
-            steps{
-                echo "Approval started and completed!"
-                 }
-                 timeout(time 3, unit: 'SECONDS')
-                 {
-                    sleep 5
-                 }
+         stage('Approval') {
+            steps {
+                echo "Waiting for manual approval..."
+                sleep time: 10, unit: 'SECONDS'
+            }
         }
 
         stage('Deploy to Production'){
             steps{
-                echo "Deploy to production completed!"
+                echo "Deploying the code to $PRODUCTION_Environment !"
                  }
         }
     }
