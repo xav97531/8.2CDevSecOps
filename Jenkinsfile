@@ -11,25 +11,30 @@ pipeline{
                 echo "Fetch the source code from $DIRECTORY_PATH"
                  }
         }
-        stage('Test'){
+        stage('Unit and Integration Tests'){
             steps{
                 echo "Unit tests"
                 echo "Integration tests"
                  }
         }
-        stage('Code quality check'){
+        stage('Code Analysis'){
             steps{
                 echo "Check the quality of the code!"
                  }
         }
-        stage('Deploy'){
+        stage('Security Scan'){
+            steps{
+                echo "Scanning the security of the code and checking for vulnerabilities"
+                 }
+        }
+        stage('Deploy to Staging'){
             steps{
                 echo "Deploy the application to $PRODUCTION_ENVIRONMENT"
                  }
         }
-         stage('Approval') {
+         stage('integration Tests on Staging') {
             steps {
-                echo "Waiting for manual approval..."
+                echo "Running integration tests on the staging environment..."
                 sleep time: 10, unit: 'SECONDS'
             }
         }
@@ -37,12 +42,6 @@ pipeline{
         stage('Deploy to Production'){
             steps{
                 echo "Deploying the code to $PRODUCTION_Environment !"
-                 }
-        }
-
-stage('Done'){
-            steps{
-                echo "Done the code to $PRODUCTION_Environment !"
                  }
         }
         
