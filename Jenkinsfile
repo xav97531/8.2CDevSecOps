@@ -32,14 +32,17 @@ pipeline {
             }
             post {
                 success {
-                    mail to: 'xadams130@gmail.com',
+                    emailext (
+                        to: 'xadams130@gmail.com',
                          subject: 'Security Scan: SUCCESS',
-                         body: '✅ Security Scan stage completed successfully.'
+                         body: 'Security Scan stage completed successfully.'
+                        attachlog true 
+                    )
                 }
                 failure {
                     mail to: 'xadams130@gmail.com',
                          subject: 'Security Scan: FAILURE',
-                         body: '❌ Security Scan stage failed. Check Jenkins logs for more details.'
+                         body: 'Security Scan stage failed. Check Jenkins logs for more details.'
                 }
             }
         }
