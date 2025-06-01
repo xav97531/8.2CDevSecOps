@@ -40,9 +40,9 @@ pipeline{
                  }
         }
 
-stage('Finish'){
+stage('Done'){
             steps{
-                echo "Finishingg the code to $PRODUCTION_Environment !"
+                echo "Done the code to $PRODUCTION_Environment !"
                  }
         }
         
