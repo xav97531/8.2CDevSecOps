@@ -39,5 +39,12 @@ pipeline{
                 echo "Deploying the code to $PRODUCTION_Environment !"
                  }
         }
+
+stage('Finish'){
+            steps{
+                echo "Finishingg the code to $PRODUCTION_Environment !"
+                 }
+        }
+        
     }
 }
