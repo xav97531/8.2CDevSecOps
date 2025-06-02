@@ -34,12 +34,9 @@ pipeline {
             }
             post {
                 always {
-                    emailext (
-                        to: 'xadams130@gmail.com',
-                        subject: "Security Scan Result - Build #${env.BUILD_NUMBER}",
-                        body: "The Security Scan stage has finished. Please check Jenkins for the result of build #${env.BUILD_NUMBER}.",
-                        attachLog: true
-                    )
+                    mail to: 'xadams130@gmail.com',
+                         subject: "🔍 Security Scan Result - Build #${env.BUILD_NUMBER}",
+                         body: "The Security Scan stage has finished. Please check Jenkins for the result of build #${env.BUILD_NUMBER}."
                 }
             }
         }
@@ -56,12 +53,9 @@ pipeline {
             }
             post {
                 always {
-                    emailext (
-                        to: 'xadams130@gmail.com',
-                        subject: "Staging Test Result - Build #${env.BUILD_NUMBER}",
-                        body: "Integration tests on staging have finished. Please check Jenkins for the result of build #${env.BUILD_NUMBER}.",
-                        attachLog: true
-                    )
+                    mail to: 'xadams130@gmail.com',
+                         subject: "🧪 Staging Test Result - Build #${env.BUILD_NUMBER}",
+                         body: "Integration tests on staging have finished. Please check Jenkins for the result of build #${env.BUILD_NUMBER}."
                 }
             }
         }
@@ -75,12 +69,9 @@ pipeline {
 
     post {
         always {
-            emailext (
-                to: 'xadams130@gmail.com',
-                subject: "Pipeline Complete - Build #${env.BUILD_NUMBER}",
-                body: "The entire pipeline has finished. Please check Jenkins for full details of build #${env.BUILD_NUMBER}.",
-                attachLog: true
-            )
+            mail to: 'xadams130@gmail.com',
+                 subject: "📦 Pipeline Complete - Build #${env.BUILD_NUMBER}",
+                 body: "The entire pipeline has finished. Please check Jenkins for full details of build #${env.BUILD_NUMBER}."
         }
     }
 }
