@@ -35,7 +35,7 @@ pipeline {
             post {
                 always {
                     emailext (
-                        to: 'xazeldotheeia@gmail.com',
+                        to: 'xadams130@gmail.com',
                         subject: "Security Scan Result - Build #${env.BUILD_NUMBER}",
                         body: "The Security Scan stage has finished. Please check Jenkins for the result of build #${env.BUILD_NUMBER}.",
                         attachLog: true
